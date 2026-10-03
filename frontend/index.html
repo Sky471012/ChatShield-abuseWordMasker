@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatShield</title>
+    <link rel="icon" href="logo.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="chat">
+      <header class="chat__header">
+        <img class="chat__logo" src="logo.png" alt="ChatShield logo" />
+        <div>
+          <h1 class="chat__title">ChatShield</h1>
+          <p class="chat__subtitle">Abusive words are masked on the server</p>
+        </div>
+      </header>
+
+      <main class="messages" id="messages">
+        <p class="empty" id="empty">No messages yet. Say hi!</p>
+      </main>
+
+      <p class="typing" id="typing" hidden></p>
+
+      <form class="composer" id="form" autocomplete="off">
+        <input
+          class="composer__input composer__input--name"
+          id="username"
+          type="text"
+          placeholder="Username"
+          maxlength="20"
+          autocomplete="off"
+        />
+        <input
+          class="composer__input composer__input--text"
+          id="message"
+          type="text"
+          placeholder="Type a message..."
+          maxlength="500"
+          autocomplete="off"
+        />
+        <button class="composer__send" type="submit">Send</button>
+      </form>
+    </div>
+
+    <!-- Socket.io browser client, served by the backend itself -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
