@@ -26,7 +26,7 @@ let abuseTrie = new Trie();
 async function refreshAbuseList() {
   const words = await loadAbuseWords(); // throws if GitHub is unreachable
   const next = new Trie();
-  for (const word of words) next.insert(String(word).toLowerCase());
+  for (const word of words) next.insert(word); // Trie normalizes case/spaces
   abuseTrie = next;
   console.log(`Loaded ${words.length} abuse words`);
 }
